@@ -1,0 +1,9 @@
+{
+  "name": "aurum-health-college-mvp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aurum Health college project demo app",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

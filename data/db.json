@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": "ad8cee13-8797-4850-b0fa-9d70a71b7e60",
+      "name": "mastamahak",
+      "email": "mastamahak@gmail.com",
+      "salt": "234c3ad59bb454675c8384fdc8811bf7",
+      "hash": "16d15574fc3f4b55f94050ea6b260e33800060b9c0e6e57a2209b39f64d46362424d09adc3f2d45743e0c5aef5d70c13e0f010ce8e91e6b57cf0c61d92c0145c",
+      "phone": "",
+      "dob": ""
+    }
+  ],
+  "sessions": {},
+  "records": [
+    {
+      "id": "2cbdf981-bb5c-4df2-af71-cfe49e055ee3",
+      "userId": "ad8cee13-8797-4850-b0fa-9d70a71b7e60",
+      "title": "bmnb",
+      "category": "Lab report",
+      "date": "2026-11-24",
+      "fileId": "be5a67f3-db25-43f2-9a01-e84bcf93cd5d",
+      "storedName": "be5a67f3-db25-43f2-9a01-e84bcf93cd5d.png",
+      "fileName": "Screenshot (146).png",
+      "mimeType": "image/png"
+    },
+    {
+      "id": "ad32888c-218f-4277-88af-510f8441fda7",
+      "userId": "ad8cee13-8797-4850-b0fa-9d70a71b7e60",
+      "title": "Screenshot (146)",
+      "category": "Lab report",
+      "date": "2026-11-24",
+      "fileId": "62fb36d7-8eb4-45eb-8d58-5b2f32462a81",
+      "storedName": "62fb36d7-8eb4-45eb-8d58-5b2f32462a81.png",
+      "fileName": "Screenshot (146).png",
+      "mimeType": "image/png"
+    }
+  ],
+  "tasks": [],
+  "insurance": [
+    {
+      "userId": "ad8cee13-8797-4850-b0fa-9d70a71b7e60",
+      "provider": "nbvjh",
+      "policyNumber": "yt",
+      "memberId": "mnbgyh",
+      "validTill": "97878-08-08",
+      "fileId": "79703fc1-444f-471c-8ad2-664690ddccb2",
+      "storedName": "79703fc1-444f-471c-8ad2-664690ddccb2.png",
+      "fileName": "Screenshot (146).png",
+      "mimeType": "image/png"
+    }
+  ],
+  "reminders": [
+    {
+      "id": "afc764a2-1117-46e4-8a3b-74d499d211e5",
+      "userId": "ad8cee13-8797-4850-b0fa-9d70a71b7e60",
+      "title": "njbhh",
+      "dueAt": "2026-11-24T14:51:00.000Z",
+      "priority": "Routine",
+      "done": false,
+      "createdAt": "2026-11-24T13:52:01.274Z"
+    }
+  ],
+  "family": [
+    {
+      "id": "84f3ff3a-b328-4c6a-b4d0-569234caf293",
+      "userId": "ad8cee13-8797-4850-b0fa-9d70a71b7e60",
+      "name": "jhgui",
+      "relationship": "nmbhj",
+      "dob": "89677",
+      "phone": "uy87y",
+      "createdAt": "2026-11-24T13:54:12.344Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "c02eade8-5866-4c9b-9e1d-7a514343271c",
+      "userId": "ad8cee13-8797-4850-b0fa-9d70a71b7e60",
+      "doctor": "mnbjh",
+      "specialty": "mnb",
+      "clinic": "mn bn",
+      "dateTime": "2026-11-25T13:52:00.000Z",
+      "createdAt": "2026-11-24T13:52:11.986Z"
+    }
+  ],
+  "prep": [],
+  "medicationLogs": []
+}

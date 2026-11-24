@@ -1,0 +1,39 @@
+/* Aurum Health palette: golden accents, soft lavender surfaces, deep forest green. */
+:root{--ah-green:#174d3a;--ah-green-deep:#103a2b;--ah-gold:#c99a32;--ah-gold-soft:#f6e8c4;--ah-lavender:#8068a6;--ah-lavender-soft:#f0eaf6;--ah-bg:#fbf9fc;--ah-line:#e4dbea;}
+html,body{background-color:var(--ah-bg)!important;}
+.bg-primary,.bg-primary-container,.bg-tertiary,.bg-tertiary-container,.bg-surface-tint{background-color:var(--ah-green)!important;}
+.text-primary,.text-primary-container,.text-tertiary,.text-on-primary-fixed,.text-on-primary-fixed-variant{color:var(--ah-green)!important;}
+.bg-primary-fixed,.bg-primary-fixed-dim,.bg-tertiary-fixed,.bg-tertiary-fixed-dim{background-color:var(--ah-gold-soft)!important;}
+.text-tertiary-fixed,.text-tertiary-fixed-dim,.text-on-tertiary-fixed,.text-on-tertiary-fixed-variant,.text-on-tertiary-container{color:#74520a!important;}
+.bg-secondary,.bg-secondary-container,.bg-secondary-fixed,.bg-secondary-fixed-dim{background-color:var(--ah-lavender-soft)!important;}
+.text-secondary,.text-secondary-container,.text-on-secondary-fixed-variant{color:var(--ah-lavender)!important;}
+.bg-surface,.bg-background,.bg-surface-bright{background-color:var(--ah-bg)!important;}
+.bg-surface-container,.bg-surface-container-low,.bg-surface-container-high,.bg-surface-container-highest,.bg-surface-variant{background-color:var(--ah-lavender-soft)!important;}
+.text-on-surface,.text-on-background{color:#24212a!important;}
+.border-outline,.border-outline-variant,.border-primary{border-color:var(--ah-line)!important;}
+.accent-primary,.accent-primary-container{accent-color:var(--ah-green)!important;}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--ah-gold)!important;outline-offset:2px;}
+/* Standalone Records page uses named CSS variables rather than Tailwind utilities. */
+.top{border-color:var(--ah-line)!important;background:var(--ah-bg)!important;}
+.eyebrow,.count,.file-icon{color:var(--ah-green)!important;}
+.count,.btn.secondary,.field input:focus,.field select:focus{background:var(--ah-lavender-soft)!important;}
+.section{border-color:var(--ah-line)!important;}
+.btn{background:var(--ah-green)!important;color:#fff!important;}
+.btn.secondary{color:var(--ah-green)!important;}
+.btn.danger{background:#fff0ef!important;color:#a33b35!important;}
+.status{color:var(--ah-green)!important;}
+.section[style*="linear-gradient"]{background:linear-gradient(135deg,#f0eaf6,#fff)!important;border-color:var(--ah-line)!important;}
+.file-icon{background:var(--ah-lavender-soft)!important;}
+
+/* Refined Aurum palette: forest green and lavender lead; gold is a restrained accent. */
+:root{--ah-green:#123f32;--ah-green-deep:#0d3027;--ah-gold:#d8b65e;--ah-gold-soft:#f5e9c8;--ah-lavender:#806ba7;--ah-lavender-soft:#eee8f6;--ah-bg:#f8f6fb;--ah-line:#ded5eb;}
+html,body{background-color:var(--ah-bg)!important;color:#202a27!important;}
+.bg-primary,.bg-primary-container,.bg-tertiary,.bg-tertiary-container,.bg-surface-tint{background-color:var(--ah-green)!important;}
+.text-primary,.text-primary-container,.text-tertiary,.text-on-primary-fixed-variant{color:var(--ah-green)!important;}
+.bg-secondary,.bg-secondary-container,.bg-secondary-fixed,.bg-secondary-fixed-dim,.bg-surface-container-high,.bg-surface-container-highest,.bg-surface-variant{background-color:var(--ah-lavender-soft)!important;}
+.text-secondary,.text-secondary-container,.text-on-secondary-fixed,.text-on-secondary-fixed-variant{color:var(--ah-lavender)!important;}
+.bg-primary-fixed,.bg-primary-fixed-dim,.bg-tertiary-fixed,.bg-tertiary-fixed-dim{background-color:var(--ah-gold-soft)!important;}
+.text-tertiary-fixed,.text-tertiary-fixed-dim,.text-on-tertiary-fixed,.text-on-tertiary-fixed-variant{color:var(--ah-green)!important;}
+.bg-surface-container-low,.bg-surface-container{background-color:#f0ebf7!important;}
+.bg-surface-container-lowest,.bg-surface{background-color:#fff!important;}
+.border-primary,.border-outline,.border-outline-variant{border-color:var(--ah-line)!important;}

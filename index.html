@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurum Health – Interactive Prototype</title>
+<style>
+:root{--lav:#806ba7;--lavbg:#eee8f6;--green:#123f32;--gold:#d8b65e;--ink:#292536}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#eee8f6,#dfe9e3);font-family:Inter,Arial,sans-serif;color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.wrap{display:flex;gap:34px;align-items:center;max-width:1100px;width:100%;justify-content:center}
+.info{max-width:310px}.info h1{color:var(--green);font-size:34px;margin:0 0 8px}.info p{line-height:1.55;color:#625d6c}.hint{background:#fff;border:1px solid #e7dfef;border-radius:16px;padding:14px;margin-top:18px;font-size:13px;line-height:1.5}
+.phone{width:min(390px,92vw);height:min(844px,88vh);min-height:620px;background:#fff;border:10px solid #25232b;border-radius:38px;overflow:hidden;box-shadow:0 24px 70px #2c234333;position:relative;display:flex;flex-direction:column}
+.top{height:22px;background:#fff;flex:none;display:flex;justify-content:center;align-items:center}.notch{width:90px;height:7px;border-radius:8px;background:#25232b}
+iframe{border:0;width:100%;flex:1;min-height:0;background:#fff}
+.tabs{height:68px;display:flex;align-items:center;justify-content:space-around;background:#fff;border-top:1px solid #eee9f3;padding:5px 3px 7px;flex:none}
+.tabs button{border:0;background:transparent;color:#777180;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:54px;cursor:pointer}
+.tabs button .ico{font-size:20px;line-height:22px}.tabs button.active{color:var(--green);font-weight:700}.tabs button.active .ico{color:var(--gold)}
+.phone.login .tabs{display:none}
+@media(max-width:760px){body{padding:0;background:#fff}.wrap{display:block}.info{display:none}.phone{width:100vw;height:100dvh;min-height:0;border:0;border-radius:0;box-shadow:none}.top{height:18px}.notch{display:none}}
+</style>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<div class="wrap">
+  <section class="info">
+    <h1>Aurum Health</h1>
+    <p><b>Your Health, Made Clear.</b><br>A connected student-project demo with working login, records and reminders.</p>
+    <div class="hint"><b>How to present</b><br>Start at Login, tap Login to enter the app, then use the four bottom tabs to move between sections. Open Scan &amp; Understand from Records to show the report scanner.</div>
+    <div class="hint">Student project demo. Medical values are sample data; emergency actions do not contact real services.</div>
+  </section>
+  <main class="phone login" id="phone">
+    <div class="top"><div class="notch"></div></div>
+    <iframe id="screen" src="login/index.html" title="Aurum Health screen"></iframe>
+    <nav class="tabs" id="tabs">
+      <button data-page="home" class="active"><span class="ico">⌂</span>Home</button>
+      <button data-page="records"><span class="ico">▤</span>Records</button>
+      
+      <button data-page="emergency"><span class="ico">✚</span>Emergency</button>
+      <button data-page="profile"><span class="ico">♙</span>Profile</button>
+    </nav>
+  </main>
+</div>
+<script>
+const pages=['home','records','emergency','profile','premium'];
+const frame=document.getElementById('screen'), phone=document.getElementById('phone');
+let current='login';
+function show(page){
+  if(!['login',...pages,'scan','report','care'].includes(page)) page='home';
+  current=page; frame.src=page+'/index.html';
+  phone.classList.toggle('login',page==='login');
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>show(b.dataset.page)));
+window.addEventListener('message',e=>{if(e.data&&e.data.type==='aurum-navigate')show(e.data.page);});
+fetch('/api/me',{credentials:'same-origin'}).then(r=>{if(r.ok)show('home');}).catch(()=>{});
+frame.addEventListener('load',()=>{
+  try{
+    const doc=frame.contentDocument;
+    // Remove the screen's own tab bar; the connected prototype provides one shared tab bar.
+    doc.querySelectorAll('nav').forEach(n=>{n.style.display='none';});
+    // Route prototype actions by their visible labels on non-Records screens only.
+    // Records has its own explicit card navigation; text matching here used to hijack
+    // the Scan and All Reports cards and send users to the wrong screen.
+    if(current!=='records') doc.querySelectorAll('button,a,[role="button"]').forEach(el=>{
+      const t=(el.innerText||el.getAttribute('aria-label')||'').trim().toLowerCase();
+      if(t.includes('scan')) el.addEventListener('click',e=>{e.preventDefault();show('scan')});
+      else if(t.includes('view details')||t.includes('complete blood count')) el.addEventListener('click',e=>{e.preventDefault();show('report')});
+      else if(t.includes('records')) el.addEventListener('click',e=>{e.preventDefault();show('records')});
+      else if(t.includes('emergency')) el.addEventListener('click',e=>{e.preventDefault();show('emergency')});
+      else if(t.includes('premium')) el.addEventListener('click',e=>{e.preventDefault();show('premium')});
+      else if(t.includes('profile')) el.addEventListener('click',e=>{e.preventDefault();show('profile')});
+    });
+  }catch(e){}
+});
+</script>
+</body></html>
